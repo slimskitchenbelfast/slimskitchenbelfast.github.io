@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+		<title>Slims Screen 2</title> 
+		<meta charset="utf-8"> 
+		<script src="/js/jquery-latest.js"></script> 
+		<script src="/js/jquery-photo-resize.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$("img").photoResize({
+					bottomSpacing: 10,
+					rightSpacing: 10,
+					upscaleImageWidth: true,
+					upscaleImageHeight: true
+				});
+			});
+		</script>
+		<style type="text/css" media="screen">
+			body { text-align: center;
+			background: #000;			}
+		</style>
+	</head> 
+	<body>
+		<img src="/images/2.png" alt="">
+	</body> 
+</html>

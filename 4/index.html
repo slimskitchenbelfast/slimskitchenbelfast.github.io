@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Slims Screen 4</title>
+<style type="text/css" media="screen">
+			body { text-align: center;
+			background: #000;			}
+		</style>
+
+<script src="/js/jquery-latest.js"></script>
+<script src="/js/moment.js"></script>
+<script src="/js/moment-timezone-with-data-2010-2020.min.js"></script>
+<script src="/js/jquery-photo-resize.js"></script>
+	
+<script>
+
+
+	
+
+function SetIframe(Displaying) {
+    
+	var locations = ["/images/4a.png", 
+			 "/images/4b.png"];
+	var fullimage = $('#fullimage');
+	var Current = Displaying;
+	//var hr = (new Date()).getHours(); //get hours of the day in 24Hr format (0-23)
+	
+	var req = new XMLHttpRequest();
+	req.open('GET', document.location, false);
+	req.send(null);
+
+	var momentTime = moment(req.getResponseHeader("Date"));
+	var hr     = momentTime.clone().tz("Europe/London").format('H');
+	
+
+	if(hr > 6 && hr < 12)
+		Current = 0;  //Breakfast
+	else
+		Current = 1;
+	
+	if(Current != Displaying)
+	{
+		fullimage.attr('src', locations[Current]);
+		Displaying = Current;
+	}
+	
+	return Displaying;
+}
+
+
+
+
+$(document).ready(function(){
+
+var Displaying = -1;
+SetIframe(Displaying);
+
+setInterval(function () {
+
+	Displaying = SetIframe(Displaying);
+
+}, 10000);
+
+$("img").photoResize({
+					bottomSpacing: 10,
+					rightSpacing: 10,
+					upscaleImageWidth: true,
+					upscaleImageHeight: true
+				});
+
+});
+
+
+</script>
+</head>
+
+<body>
+<img id="fullimage" alt="">
+</body>
+
+</html>
+
