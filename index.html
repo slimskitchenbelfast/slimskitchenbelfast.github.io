@@ -5,6 +5,13 @@
 		<meta charset="utf-8"> 
 		<script src="/js/jquery-latest.js"></script> 
 		<script src="/js/jquery-photo-resize.js"></script>
+		<style type="text/css" media="screen">
+			body { text-align: center;
+			background: #000;}
+			
+			#preload-01 { background: url(/images/1.png) no-repeat -9999px -9999px; }
+		</style>
+		
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
 				$("img").photoResize({
@@ -15,10 +22,7 @@
 				});
 			});
 		</script>
-		<style type="text/css" media="screen">
-			body { text-align: center;
-			background: #000;			}
-		</style>
+		
 	</head> 
 	<body>
 		<img src="/images/1.png" alt="">
